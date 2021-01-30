@@ -13,7 +13,7 @@ const pets = [
     specialSkill:
       "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
     type: "dino",
-    imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg",
+    imageUrl: "https://nashvillehumane.org/wp-content/uploads/2021/01/Bossman-600x800.jpg",
   },
   {
     name: "Whiskers",
@@ -257,6 +257,7 @@ const petBuilder = (taco) => {
                         <p class="card-text">${taco[i].color}</p>
                         <p class="card-text">${taco[i].specialSkill}</p>
                         <p class="card-text">${taco[i].type}</p>
+                        <p class="card-text">$
                         <button type="button" class="btn btn-danger" id="${i}">Delete</button>
                       </div>
                     </div>`;
