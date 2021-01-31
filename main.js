@@ -246,16 +246,16 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 };
 
-const petBuilder = (taco) => {
+const petBuilder = (arr) => {
   let domString = "";
-  for (let i = 0; i < taco.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
-                      <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
+                      <div class="img-container" style="background-image: url('${arr[i].imageUrl}');"></div>
                       <div class="card-body">
-                        <p class="card-text">${taco[i].name}</p>
-                        <p class="card-text">${taco[i].color}</p>
-                        <p class="card-text">${taco[i].specialSkill}</p>
-                        <p class="card-text">${taco[i].type}</p>
+                        <p class="card-text">${arr[i].name}</p>
+                        <p class="card-text">${arr[i].color}</p>
+                        <p class="card-text">${arr[i].specialSkill}</p>
+                        <p class="card-text">${arr[i].type}</p>
                         <p class="card-text">$
                         <button type="button" class="btn btn-danger" id="${i}">Delete</button>
                       </div>
@@ -265,4 +265,21 @@ const petBuilder = (taco) => {
   printToDom("#pets", domString);
 };
 
-petBuilder(pets);
+const buttonEvents = () => {
+  const allBtn =document.querySelector('#All');
+  const CatsBtn =document.querySelector('#Cats');
+  const DogsBtn =document.querySelector('#Dogs');
+  const DinosBtn =document.querySelector('#Dinos');
+
+  allBtn.addEventListener('click', (e) => {
+    console.log(e.target.id);
+
+  })
+}
+
+const init = () => {
+  buttonEvents();
+  petBuilder(pets);
+}
+
+init();
