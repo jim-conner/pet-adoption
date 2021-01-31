@@ -127,7 +127,6 @@ const pets = [
     specialSkill: "Drives at a safe rate of speed in snow or rain.",
     type: "Dino",
     imageUrl: "https://i.imgflip.com/1avqxu.jpg",
-  
   },
   {
     name: "Muffin",
@@ -150,8 +149,7 @@ const pets = [
     color: "Blue",
     specialSkill: "Listens attentively to boring stories.",
     type: "Dog",
-    imageUrl:
-      "https://sabicons.files.wordpress.com/2013/02/blue-dog.jpg",
+    imageUrl: "https://sabicons.files.wordpress.com/2013/02/blue-dog.jpg",
   },
   {
     name: "Spooky",
@@ -165,7 +163,8 @@ const pets = [
     color: "Red",
     specialSkill: "Owns a Nintendo Power Glove.",
     type: "Dino",
-    imageUrl: "https://cdn.shopify.com/s/files/1/2381/2037/products/WalkaroundRedT-RexCostume_4.jpg",
+    imageUrl:
+      "https://cdn.shopify.com/s/files/1/2381/2037/products/WalkaroundRedT-RexCostume_4.jpg",
   },
   {
     name: "Snuggles",
@@ -197,7 +196,8 @@ const pets = [
     color: "Red",
     specialSkill: "Knows the words to 4 rap songs.",
     type: "Cat",
-    imageUrl: "https://i.pinimg.com/originals/c9/f2/3e/c9f23e212529f13f19bad5602d84b78b.jpg",
+    imageUrl:
+      "https://i.pinimg.com/originals/c9/f2/3e/c9f23e212529f13f19bad5602d84b78b.jpg",
   },
   {
     name: "Bubba",
@@ -265,21 +265,37 @@ const petBuilder = (arr) => {
   printToDom("#pets", domString);
 };
 
+//callback function
+const useButtonClick = (e) => {
+  // console.log(e.target.id);
+  const buttonId = e.target.id;
+
+  selectedPets = [];
+  for (let i = 0; i < pets.length; ) {
+    if ((pets[i].type = buttonId)) {
+      selectedPets.push(pets[i]);
+    }
+  }
+  console.log(selectedPets);
+
+  if (buttonId === "All") {
+    petBuilder(pets);
+  } else {
+    petBuilder(selectedPets);
+  }
+};
+
+// chaining methods
 const buttonEvents = () => {
-  const allBtn =document.querySelector('#All');
-  const CatsBtn =document.querySelector('#Cats');
-  const DogsBtn =document.querySelector('#Dogs');
-  const DinosBtn =document.querySelector('#Dinos');
-
-  allBtn.addEventListener('click', (e) => {
-    console.log(e.target.id);
-
-  })
-}
+  document.querySelector("#All").addEventListener("click", useButtonClick);
+  document.querySelector("#Cats").addEventListener("click", useButtonClick);
+  document.querySelector("#Dogs").addEventListener("click", useButtonClick);
+  document.querySelector("#Dinos").addEventListener("click", useButtonClick);
+};
 
 const init = () => {
   buttonEvents();
   petBuilder(pets);
-}
+};
 
 init();
