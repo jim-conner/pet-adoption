@@ -286,9 +286,10 @@ const useButtonClick = (e) => {
 // chaining methods
 const buttonEvents = () => {
   document.querySelector("#All").addEventListener("click", useButtonClick);
-  document.querySelector("#Cats").addEventListener("click", useButtonClick);
-  document.querySelector("#Dogs").addEventListener("click", useButtonClick);
-  document.querySelector("#Dinos").addEventListener("click", useButtonClick);
+  document.querySelector("#Cat").addEventListener("click", useButtonClick);
+  document.querySelector("#Dog").addEventListener("click", useButtonClick);
+  document.querySelector("#Dino").addEventListener("click", useButtonClick);
+  document.querySelector("#Delete")
 };
 
 const init = () => {
