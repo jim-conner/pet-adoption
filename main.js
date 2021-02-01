@@ -1,3 +1,4 @@
+console.log("connected");
 const pets = [
   {
     name: "Dusty",
@@ -14,7 +15,7 @@ const pets = [
       "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
     type: "Dino",
     imageUrl:
-      "https://nashvillehumane.org/wp-content/uploads/2021/01/Bossman-600x800.jpg",
+      "https://static01.nyt.com/images/2019/12/17/science/17OBS-DINOTEETH1/17OBS-DINOTEETH1-mobileMasterAt3x-v2.jpg",
   },
   {
     name: "Whiskers",
@@ -22,7 +23,7 @@ const pets = [
     specialSkill: "Can prove he is a real man by drinking whiskey.",
     type: "Dino",
     imageUrl:
-      "https://mydinosaurs.com/wp-content/uploads/2017/02/2-3-600x400.jpg",
+      "https://api.time.com/wp-content/uploads/2018/06/dinosaurs-jurassic-world-fact-check-3.jpg?w=800&quality=85",
   },
   {
     name: "Coco",
@@ -238,7 +239,7 @@ const pets = [
     type: "Dino",
     imageUrl:
       "https://img4.goodfon.com/wallpaper/nbig/c/a9/ixalan-dinosaurs-magic-art.jpg",
-  },
+  }
 ];
 
 const printToDom = (divId, textToPrint) => {
@@ -256,7 +257,7 @@ const petBuilder = (arr) => {
                         <p class="card-text">${arr[i].color}</p>
                         <p class="card-text">${arr[i].specialSkill}</p>
                         <p class="card-text">${arr[i].type}</p>
-                        <p class="card-text">$
+                        <p class="card-text">
                         <button type="button" class="btn btn-danger" id="${i}">Delete</button>
                       </div>
                     </div>`;
@@ -267,22 +268,19 @@ const petBuilder = (arr) => {
 
 //callback function
 const useButtonClick = (e) => {
-  // console.log(e.target.id);
   const buttonId = e.target.id;
 
-  selectedPets = [];
-  for (let i = 0; i < pets.length; ) {
-    if ((pets[i].type = buttonId)) {
+  const selectedPets = [];
+  for (let i = 0; i < pets.length; i++) {
+    if (pets[i].type === buttonId) {
       selectedPets.push(pets[i]);
     }
   }
-  console.log(selectedPets);
-
+  console.log(selectedPets)
   if (buttonId === "All") {
     petBuilder(pets);
-  } else {
+  } else
     petBuilder(selectedPets);
-  }
 };
 
 // chaining methods
