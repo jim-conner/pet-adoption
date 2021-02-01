@@ -276,7 +276,7 @@ const useButtonClick = (e) => {
       selectedPets.push(pets[i]);
     }
   }
-  console.log(selectedPets)
+
   if (buttonId === "All") {
     petBuilder(pets);
   } else
@@ -289,7 +289,18 @@ const buttonEvents = () => {
   document.querySelector("#Cat").addEventListener("click", useButtonClick);
   document.querySelector("#Dog").addEventListener("click", useButtonClick);
   document.querySelector("#Dino").addEventListener("click", useButtonClick);
-  document.querySelector("#Delete")
+// delete button
+  document.querySelector("#pets").addEventListener("click", (e) => {
+    const targetType = e.target.type;
+    const targetId = e.target.id;
+
+    if (targetType === 'button') {
+      pets.splice(targetId, 1);
+    }
+
+    petBuilder(pets);
+
+  });
 };
 
 const init = () => {
