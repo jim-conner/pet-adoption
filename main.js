@@ -1,3 +1,4 @@
+console.log("connected");
 const pets = [
   {
     name: "Dusty",
@@ -14,7 +15,7 @@ const pets = [
       "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
     type: "Dino",
     imageUrl:
-      "https://nashvillehumane.org/wp-content/uploads/2021/01/Bossman-600x800.jpg",
+      "https://static01.nyt.com/images/2019/12/17/science/17OBS-DINOTEETH1/17OBS-DINOTEETH1-mobileMasterAt3x-v2.jpg",
   },
   {
     name: "Whiskers",
@@ -22,7 +23,7 @@ const pets = [
     specialSkill: "Can prove he is a real man by drinking whiskey.",
     type: "Dino",
     imageUrl:
-      "https://mydinosaurs.com/wp-content/uploads/2017/02/2-3-600x400.jpg",
+      "https://api.time.com/wp-content/uploads/2018/06/dinosaurs-jurassic-world-fact-check-3.jpg?w=800&quality=85",
   },
   {
     name: "Coco",
@@ -127,7 +128,6 @@ const pets = [
     specialSkill: "Drives at a safe rate of speed in snow or rain.",
     type: "Dino",
     imageUrl: "https://i.imgflip.com/1avqxu.jpg",
-  
   },
   {
     name: "Muffin",
@@ -150,8 +150,7 @@ const pets = [
     color: "Blue",
     specialSkill: "Listens attentively to boring stories.",
     type: "Dog",
-    imageUrl:
-      "https://sabicons.files.wordpress.com/2013/02/blue-dog.jpg",
+    imageUrl: "https://sabicons.files.wordpress.com/2013/02/blue-dog.jpg",
   },
   {
     name: "Spooky",
@@ -165,7 +164,8 @@ const pets = [
     color: "Red",
     specialSkill: "Owns a Nintendo Power Glove.",
     type: "Dino",
-    imageUrl: "https://cdn.shopify.com/s/files/1/2381/2037/products/WalkaroundRedT-RexCostume_4.jpg",
+    imageUrl:
+      "https://cdn.shopify.com/s/files/1/2381/2037/products/WalkaroundRedT-RexCostume_4.jpg",
   },
   {
     name: "Snuggles",
@@ -197,7 +197,8 @@ const pets = [
     color: "Red",
     specialSkill: "Knows the words to 4 rap songs.",
     type: "Cat",
-    imageUrl: "https://i.pinimg.com/originals/c9/f2/3e/c9f23e212529f13f19bad5602d84b78b.jpg",
+    imageUrl:
+      "https://i.pinimg.com/originals/c9/f2/3e/c9f23e212529f13f19bad5602d84b78b.jpg",
   },
   {
     name: "Bubba",
@@ -256,7 +257,7 @@ const petBuilder = (arr) => {
                         <p class="card-text">${arr[i].color}</p>
                         <p class="card-text">${arr[i].specialSkill}</p>
                         <p class="card-text">${arr[i].type}</p>
-                        <p class="card-text">$
+                        <p class="card-text">
                         <button type="button" class="btn btn-danger" id="${i}">Delete</button>
                       </div>
                     </div>`;
@@ -265,21 +266,46 @@ const petBuilder = (arr) => {
   printToDom("#pets", domString);
 };
 
+//callback function
+const useButtonClick = (e) => {
+  const buttonId = e.target.id;
+
+  const selectedPets = [];
+  for (let i = 0; i < pets.length; i++) {
+    if (pets[i].type === buttonId) {
+      selectedPets.push(pets[i]);
+    }
+  }
+
+  if (buttonId === "All") {
+    petBuilder(pets);
+  } else petBuilder(selectedPets);
+};
+
+const deletePets = (e) => {
+  const targetType = e.target.type;
+  const targetId = e.target.id;
+
+  if (targetType === "button") {
+    pets.splice(targetId, 1);
+  }
+
+  petBuilder(pets);
+};
+
+// chaining methods
 const buttonEvents = () => {
-  const allBtn =document.querySelector('#All');
-  const CatsBtn =document.querySelector('#Cats');
-  const DogsBtn =document.querySelector('#Dogs');
-  const DinosBtn =document.querySelector('#Dinos');
-
-  allBtn.addEventListener('click', (e) => {
-    console.log(e.target.id);
-
-  })
-}
+  document.querySelector("#All").addEventListener("click", useButtonClick);
+  document.querySelector("#Cat").addEventListener("click", useButtonClick);
+  document.querySelector("#Dog").addEventListener("click", useButtonClick);
+  document.querySelector("#Dino").addEventListener("click", useButtonClick);
+  // delete button event
+  document.querySelector("#pets").addEventListener("click", deletePets)
+};
 
 const init = () => {
   buttonEvents();
   petBuilder(pets);
-}
+};
 
 init();
