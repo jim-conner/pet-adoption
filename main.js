@@ -239,7 +239,7 @@ const pets = [
     type: "Dino",
     imageUrl:
       "https://img4.goodfon.com/wallpaper/nbig/c/a9/ixalan-dinosaurs-magic-art.jpg",
-  }
+  },
 ];
 
 const printToDom = (divId, textToPrint) => {
@@ -279,8 +279,18 @@ const useButtonClick = (e) => {
 
   if (buttonId === "All") {
     petBuilder(pets);
-  } else
-    petBuilder(selectedPets);
+  } else petBuilder(selectedPets);
+};
+
+const deletePets = (e) => {
+  const targetType = e.target.type;
+  const targetId = e.target.id;
+
+  if (targetType === "button") {
+    pets.splice(targetId, 1);
+  }
+
+  petBuilder(pets);
 };
 
 // chaining methods
@@ -289,18 +299,8 @@ const buttonEvents = () => {
   document.querySelector("#Cat").addEventListener("click", useButtonClick);
   document.querySelector("#Dog").addEventListener("click", useButtonClick);
   document.querySelector("#Dino").addEventListener("click", useButtonClick);
-// delete button
-  document.querySelector("#pets").addEventListener("click", (e) => {
-    const targetType = e.target.type;
-    const targetId = e.target.id;
-
-    if (targetType === 'button') {
-      pets.splice(targetId, 1);
-    }
-
-    petBuilder(pets);
-
-  });
+  // delete button event
+  document.querySelector("#pets").addEventListener("click", deletePets)
 };
 
 const init = () => {
