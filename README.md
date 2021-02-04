@@ -20,7 +20,12 @@ https://github.com/jim-conner/pet-adoption/projects/1
 - Delete functionality allows the user to remove pets they are not interested in adopting.
 
 ## List of features
-##Screenshots of your project
+* Click applicable pet's button to filter thru 3 pet categories
+* All button returns user to all cards.
+* Delete button removes individual pet cards.
+
+## Screenshots of your project
+![Alt text](/relative/path/to/Screenshot 2021-02-03 213009.png?raw=true "Pet Adoption Screenshot")
 
 ## List of contributors and links to their GH profiles
 Jim Conner https://github.com/jim-conner
