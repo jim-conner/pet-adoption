@@ -24,10 +24,15 @@ https://github.com/jim-conner/pet-adoption/projects/1
 * All button returns user to all cards.
 * Delete button removes individual pet cards.
 
+## LOOM 
+Link to Loom video walkthrough of your app (no more than 1 minute long! Make it great)
+
+### Contributors
+Jim Conner https://github.com/jim-conner
+
 ## Screenshots of your project
 ![Alt text](/relative/path/to/Screenshot 2021-02-03 213009.png?raw=true "Pet Adoption Screenshot")
 
-## List of contributors and links to their GH profiles
-Jim Conner https://github.com/jim-conner
 
-Link to Loom video walkthrough of your app (no more than 1 minute long! Make it great)
+
+
