@@ -31,8 +31,8 @@ Link to Loom video walkthrough of your app (no more than 1 minute long! Make it 
 Jim Conner https://github.com/jim-conner
 
 ## Screenshots of your project
-![Alt text](/relative/path/to/Screenshot 2021-02-03 213009.png?raw=true "Pet Adoption Screenshot")
+![Screenshot of Pet Adoption](https://github.com/jim-conner/pet-adoption/blob/master/Screenshot%202021-02-03%20213009.png "Pet Adoption Screenshot")
 
-
+ 
 
 
